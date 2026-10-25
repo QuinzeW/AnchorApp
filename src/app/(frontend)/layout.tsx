@@ -1,23 +1,9 @@
-import React from "react"
 import type { Metadata, Viewport } from "next"
-import Script from "next/script"
-import { BodyCustomCode, renderHeadCustomCode } from "@/lib/make-custom-code"
-import {
-  makeSiteSettings,
-  sanitizeHtmlAttribute,
-} from "@/lib/make-site-settings"
+import type { ReactNode } from "react"
 import "./styles.css"
 
-const defaultTitle = "Sensory Anchoring"
-const title = makeSiteSettings.title ?? defaultTitle
-const description =
-  makeSiteSettings.description ??
-  "Petits défis photographiques pour s’occuper l’esprit."
-const favicon = makeSiteSettings.icons?.icon
-const socialImage = makeSiteSettings.openGraph?.image
-const googleAnalyticsId = sanitizeHtmlAttribute(
-  makeSiteSettings.analytics?.googleAnalyticsId,
-)
+const title = "Sensory Anchoring"
+const description = "Petits défis photographiques pour s’occuper l’esprit."
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -35,27 +21,14 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  robots:
-    makeSiteSettings.robots?.index === false
-      ? { follow: false, index: false }
-      : undefined,
-  icons: favicon
-    ? { icon: favicon }
-    : {
-        icon: "/icon-192.png",
-        apple: "/icon-192.png",
-      },
+  icons: {
+    icon: "/icon-192.png",
+    apple: "/icon-192.png",
+  },
   openGraph: {
     title,
     description,
-    images: socialImage ? [socialImage] : undefined,
   },
-  twitter: socialImage
-    ? {
-        card: "summary_large_image",
-        images: [socialImage],
-      }
-    : undefined,
 }
 
 export const viewport: Viewport = {
@@ -69,45 +42,14 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
-  const language = sanitizeHtmlAttribute(makeSiteSettings.language) || "en"
-  const addBypassLinks = makeSiteSettings.accessibility?.addBypassLinks === true
-  const customScripts = makeSiteSettings.customScripts
-
   return (
-    <html lang={language === "en" ? "fr" : language}>
-      <head>
-        {renderHeadCustomCode(customScripts?.headStart, "head-start")}
-        {renderHeadCustomCode(customScripts?.headEnd, "head-end")}
-      </head>
+    <html lang="fr">
       <body className="min-h-dvh overscroll-none bg-[#fffef6] text-[#002d3a] antialiased">
-        <BodyCustomCode html={customScripts?.bodyStart} />
-        {addBypassLinks && (
-          <a className="figma-bypass-link" href="#root">
-            Skip to content
-          </a>
-        )}
         <div id="root" tabIndex={-1}>
           {children}
         </div>
-        {googleAnalyticsId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="figma-google-analytics" strategy="afterInteractive">
-              {`
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', ${JSON.stringify(googleAnalyticsId)});
-`}
-            </Script>
-          </>
-        )}
-        <BodyCustomCode html={customScripts?.bodyEnd} />
       </body>
     </html>
   )

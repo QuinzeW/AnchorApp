@@ -1,7 +1,4 @@
-import { FigmaAvatarCell as FigmaAvatarCell_5b632879807206965a35b58cd5166e1c } from '@payloadcms/figma/client'
 import { LLMInstructionsMenuItem as LLMInstructionsMenuItem_3817bf644402e67bfe6577f60ef982de } from '@payloadcms/ui'
-import { FigmaCloudLimitSlugTracker as FigmaCloudLimitSlugTracker_5b632879807206965a35b58cd5166e1c } from '@payloadcms/figma/client'
-import { LimitReachedView as LimitReachedView_d3552a8b0228f18024bd6ebd4c17886b } from '@payloadcms/figma/views'
 import { NullField as NullField_3817bf644402e67bfe6577f60ef982de } from '@payloadcms/ui'
 import { HierarchyField as HierarchyField_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
 import { HierarchyButton as HierarchyButton_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
@@ -29,11 +26,7 @@ import { UnderlineFeatureClient as UnderlineFeatureClient_e70f5e05f09f93e00b997e
 import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { LLMInstructionsDescription as LLMInstructionsDescription_3817bf644402e67bfe6577f60ef982de } from '@payloadcms/ui'
-import { FixedToolbarFeatureClient as FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { LLMInstructionsCell as LLMInstructionsCell_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
-import { FigmaAvatar as FigmaAvatar_5b632879807206965a35b58cd5166e1c } from '@payloadcms/figma/client'
-import { DefaultLoginButton as DefaultLoginButton_5b632879807206965a35b58cd5166e1c } from '@payloadcms/figma/client'
-import { FigmaCloudLimitProvider as FigmaCloudLimitProvider_5b632879807206965a35b58cd5166e1c } from '@payloadcms/figma/client'
 import { FolderIcon as FolderIcon_3817bf644402e67bfe6577f60ef982de } from '@payloadcms/ui'
 import { HierarchySidebarTabServer as HierarchySidebarTabServer_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
 import { TagIcon as TagIcon_3817bf644402e67bfe6577f60ef982de } from '@payloadcms/ui'
@@ -49,10 +42,7 @@ import { UploadDropzoneCollectionsField as UploadDropzoneCollectionsField_3817bf
 
 /** @type import('payload').ImportMap */
 export const importMap = {
-  "@payloadcms/figma/client#FigmaAvatarCell": FigmaAvatarCell_5b632879807206965a35b58cd5166e1c,
   "@payloadcms/ui#LLMInstructionsMenuItem": LLMInstructionsMenuItem_3817bf644402e67bfe6577f60ef982de,
-  "@payloadcms/figma/client#FigmaCloudLimitSlugTracker": FigmaCloudLimitSlugTracker_5b632879807206965a35b58cd5166e1c,
-  "@payloadcms/figma/views#LimitReachedView": LimitReachedView_d3552a8b0228f18024bd6ebd4c17886b,
   "@payloadcms/ui#NullField": NullField_3817bf644402e67bfe6577f60ef982de,
   "@payloadcms/ui/rsc#HierarchyField": HierarchyField_ab83ff7e88da8d3530831f296ec4756a,
   "@payloadcms/ui/rsc#HierarchyButton": HierarchyButton_ab83ff7e88da8d3530831f296ec4756a,
@@ -80,11 +70,7 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#BoldFeatureClient": BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/ui#LLMInstructionsDescription": LLMInstructionsDescription_3817bf644402e67bfe6577f60ef982de,
-  "@payloadcms/richtext-lexical/client#FixedToolbarFeatureClient": FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/ui/rsc#LLMInstructionsCell": LLMInstructionsCell_ab83ff7e88da8d3530831f296ec4756a,
-  "@payloadcms/figma/client#FigmaAvatar": FigmaAvatar_5b632879807206965a35b58cd5166e1c,
-  "@payloadcms/figma/client#DefaultLoginButton": DefaultLoginButton_5b632879807206965a35b58cd5166e1c,
-  "@payloadcms/figma/client#FigmaCloudLimitProvider": FigmaCloudLimitProvider_5b632879807206965a35b58cd5166e1c,
   "@payloadcms/ui#FolderIcon": FolderIcon_3817bf644402e67bfe6577f60ef982de,
   "@payloadcms/ui/rsc#HierarchySidebarTabServer": HierarchySidebarTabServer_ab83ff7e88da8d3530831f296ec4756a,
   "@payloadcms/ui#TagIcon": TagIcon_3817bf644402e67bfe6577f60ef982de,
