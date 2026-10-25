@@ -1,6 +1,5 @@
 import path from 'path'
-import { buildFigmaConfig } from '@payloadcms/figma'
-import { mcpPlugin } from '@payloadcms/plugin-mcp'
+import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { fr as adminLanguage } from '@payloadcms/translations/languages/fr'
 import { fileURLToPath } from 'url'
 import { buildConfig } from 'payload'
@@ -20,8 +19,14 @@ const config = {
     dashboard: {
       widgets: [],
       defaultLayout: [
-        { widgetSlug: 'activity', width: 'full' },
-        { widgetSlug: 'collections', width: 'full' },
+        {
+          widgetSlug: 'activity' as const,
+          width: 'full' as const,
+        },
+        {
+          widgetSlug: 'collections' as const,
+          width: 'full' as const,
+        },
       ],
     },
     importMap: {
@@ -30,7 +35,7 @@ const config = {
   },
   i18n: {
     fallbackLanguage: 'fr',
-    supportedLanguages: { 'fr': adminLanguage },
+    supportedLanguages: { fr: adminLanguage },
   },
   collections: [Admins, Media, Folders, Tags, Posts],
   localization: {
@@ -41,20 +46,12 @@ const config = {
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  plugins: [mcpPlugin({})],
-  figma: {},
+  db: sqliteAdapter({
+    client: {
+      url: 'file:./payload-local.db',
+    },
+  }),
+  secret: process.env.PAYLOAD_SECRET || 'local-only-secret-change-me',
 }
 
-export default (() => {
-  const payloadConfig = config as any
-
-  try {
-    return buildFigmaConfig(payloadConfig)
-  } catch (error) {
-    if (process.env.FIGMA_EID) {
-      throw error
-    }
-
-    return buildConfig(payloadConfig)
-  }
-})()
+export default buildConfig(config as any)
